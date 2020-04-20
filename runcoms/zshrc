@@ -11,3 +11,25 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Specify default editor. Possible values: vim, nano, ed etc.
+export EDITOR=vim
+
+# Added May 25th 2019 for Valet installation
+#export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# Added Nov 5th 2019 when I ran brew install ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Nov 5th 2019 - For compilers to find ruby you may need to set:
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+# Nov 5th 2019 - For pkg-config to find ruby you may need to set:
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+# April 13th 2020 - Problem with Capistrano Bundler.
+eval "$(rbenv init -)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
